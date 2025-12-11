@@ -14,6 +14,9 @@ export const GRAVITY = 0.15;
 export const FRAME_COUNT_TO_TOGGLE_DAY_NIGHT = 600;
 export const STORAGE_RECORD_KEY = 'record';
 
+export const COLOR_TEXT_DEFAULT = '#ffffff';
+export const COLOR_TEXT_SHADOW = '#000000';
+
 export const FONT = 'FlappyBird';
 export const FONT_SRC = "url('assets/fonts/FlappyBird.woff2') format('woff2')";
 

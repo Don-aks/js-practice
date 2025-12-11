@@ -1,4 +1,4 @@
-import { FONT } from '../constants/constants.js';
+import { COLOR_TEXT_SHADOW, FONT } from '../constants/constants.js';
 import ScoreManager from '../services/ScoreManager.js';
 
 class GameOver {
@@ -36,7 +36,7 @@ class GameOver {
     this.ctx.fillStyle = ScoreManager.getColor(this.medalName);
     this.ctx.font = `${panelWidth * 0.1}px ${FONT}`;
     this.ctx.textAlign = 'right';
-    this.ctx.shadowColor = '#000000';
+    this.ctx.shadowColor = COLOR_TEXT_SHADOW;
     this.ctx.lineWidth = panelWidth * 0.03;
     const scoreX = panelX + panelWidth * 0.89;
     const scoreY = panelY + panelHeight * 0.42;

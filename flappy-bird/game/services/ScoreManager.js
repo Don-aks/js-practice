@@ -1,4 +1,10 @@
-import { FONT, MEDALS, STORAGE_RECORD_KEY } from '../constants/constants.js';
+import {
+  COLOR_TEXT_DEFAULT,
+  COLOR_TEXT_SHADOW,
+  FONT,
+  MEDALS,
+  STORAGE_RECORD_KEY,
+} from '../constants/constants.js';
 
 class ScoreManager {
   record = null;
@@ -13,7 +19,7 @@ class ScoreManager {
     ctx.fillStyle = this.scoreColor;
     ctx.font = `${canvasWidth * 0.2}px ${FONT}`;
     ctx.textAlign = 'center';
-    ctx.shadowColor = '#000000';
+    ctx.shadowColor = COLOR_TEXT_SHADOW;
     ctx.lineWidth = canvasHeight * 0.02;
     ctx.strokeText(this.#score, canvasWidth / 2, canvasHeight * 0.13);
     ctx.fillText(this.#score, canvasWidth / 2, canvasHeight * 0.13);
@@ -28,7 +34,7 @@ class ScoreManager {
   }
 
   get scoreColor() {
-    return MEDALS[this.medalName]?.color || '#ffffff';
+    return MEDALS[this.medalName]?.color || COLOR_TEXT_DEFAULT;
   }
 
   increment() {
@@ -49,7 +55,7 @@ class ScoreManager {
   }
 
   getColor(medalName) {
-    return MEDALS[medalName]?.color ?? '#ffffff';
+    return MEDALS[medalName]?.color ?? COLOR_TEXT_DEFAULT;
   }
 
   calculateMedalName(score) {
