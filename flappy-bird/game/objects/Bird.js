@@ -77,6 +77,10 @@ class Bird {
     this.isFalling = false;
     this.#velocity = -this.#flapPower;
   }
+
+  get flapPower() {
+    return this.#flapPower;
+  }
 }
 
 export default Bird;

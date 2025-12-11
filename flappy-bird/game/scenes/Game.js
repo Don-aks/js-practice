@@ -165,11 +165,6 @@ class Game {
 
     if (this.isLockedInput && isOutOfScreen) {
       SoundManager.playSound(SoundManager.die);
-      console.log(
-        ScoreManager.score,
-        ScoreManager.record ?? ScoreManager.score,
-        ScoreManager.medalName
-      );
       this.gameOverScreen = new GameOver(
         this.canvas,
         this.#images,

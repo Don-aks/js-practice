@@ -6,7 +6,7 @@ class ImageManager {
   #firstToLoad = LOADER_REQUIRED_IMAGE_KEYS;
 
   async loadInitial() {
-    await Object.entries(imageSrcs, true);
+    await this.#loadImages(imageSrcs, true);
     return this.images;
   }
 

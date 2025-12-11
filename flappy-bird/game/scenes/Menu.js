@@ -96,7 +96,7 @@ class Menu {
   #drawLogo() {
     this.ctx.drawImage(
       this.#logo.img,
-      this.canvas.width / 2 - this.#logo.width / 2,
+      (this.canvas.width - this.#logo.width) / 2,
       this.canvas.height * 0.35,
       this.#logo.width,
       this.#logo.height
@@ -106,7 +106,7 @@ class Menu {
   #drawButton() {
     this.ctx.drawImage(
       this.#playBtn.img,
-      this.canvas.width / 2 - this.#playBtn.width / 2,
+      (this.canvas.width - this.#playBtn.width) / 2,
       this.canvas.height * 0.5,
       this.#playBtn.width,
       this.#playBtn.height

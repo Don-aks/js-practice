@@ -29,7 +29,7 @@ class BackgroundLogic {
   }
 
   update() {
-    this.#frameCountIncrement();
+    this.#frameCount += 1;
 
     if (this.#frameCount >= this.frameCountToToggleDayNight) {
       this.#background.change();
@@ -37,8 +37,8 @@ class BackgroundLogic {
     }
   }
 
-  #frameCountIncrement() {
-    this.#frameCount += 1;
+  get isChanging() {
+    return this.#background.isChanging;
   }
 }
 

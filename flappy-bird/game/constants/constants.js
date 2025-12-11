@@ -1,4 +1,4 @@
-export const LOADER_FRAMES_DELAY = 50;
+export const LOADER_FRAMES_DELAY_TO_SHOW = 0;
 export const LOADER_REQUIRED_IMAGE_KEYS = [
   'bird',
   'logo',
@@ -14,6 +14,7 @@ export const GRAVITY = 0.15;
 export const FRAME_COUNT_TO_TOGGLE_DAY_NIGHT = 600;
 export const STORAGE_RECORD_KEY = 'record';
 
+export const COLOR_LOADER_BG = '#4ec0ca';
 export const COLOR_TEXT_DEFAULT = '#ffffff';
 export const COLOR_TEXT_SHADOW = '#000000';
 
