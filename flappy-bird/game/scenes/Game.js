@@ -150,10 +150,12 @@ class Game {
   #handleScore() {
     if (this.isLockedInput) return;
 
-    if (ScoreManager.check(this.bird, this.pipePairs)) {
+    this.pipePairs.forEach((pipePair) => {
+      if (!pipePair.checkPassed(this.bird)) return;
+
       SoundManager.playSound(SoundManager.point);
       ScoreManager.increment();
-    }
+    });
   }
 
   #handleGameOver() {

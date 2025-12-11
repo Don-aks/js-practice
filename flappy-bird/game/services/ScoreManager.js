@@ -19,21 +19,6 @@ class ScoreManager {
     ctx.fillText(this.#score, canvasWidth / 2, canvasHeight * 0.13);
   }
 
-  check(bird, pipePairs) {
-    return pipePairs.some((pipePair) => {
-      if (pipePair.isPassed) return false;
-
-      const pipeX = pipePair.x;
-      const pipeWidth = pipePair.top.width;
-      const isBirdBetween = bird.x >= pipeX && bird.x <= pipeX + pipeWidth;
-
-      if (isBirdBetween && bird.x >= pipeX + pipeWidth / 2) {
-        pipePair.isPassed = true;
-        return true;
-      }
-    });
-  }
-
   get score() {
     return this.#score;
   }
