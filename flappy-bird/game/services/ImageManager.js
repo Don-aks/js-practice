@@ -1,8 +1,9 @@
 import imageSrcs from '../../assets/_images.js';
+import { LOADER_REQUIRED_IMAGE_KEYS } from '../constants/constants.js';
 
 class ImageManager {
   images = {};
-  #firstToLoad = ['bird', 'logo', 'pipeTop', 'pipeBottom'];
+  #firstToLoad = LOADER_REQUIRED_IMAGE_KEYS;
 
   async loadInitial() {
     await Object.entries(imageSrcs, true);

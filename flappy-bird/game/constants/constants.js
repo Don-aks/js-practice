@@ -1,4 +1,10 @@
 export const LOADER_FRAMES_DELAY = 50;
+export const LOADER_REQUIRED_IMAGE_KEYS = [
+  'bird',
+  'logo',
+  'pipeTop',
+  'pipeBottom',
+];
 
 export const MIN_WIDTH = 320;
 export const MIN_HEIGHT = 480;
