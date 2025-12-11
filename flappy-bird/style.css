@@ -11,7 +11,3 @@ body {
 
   background-color: #272b31;
 }
-
-canvas {
-  image-rendering: pixelated;
-}
