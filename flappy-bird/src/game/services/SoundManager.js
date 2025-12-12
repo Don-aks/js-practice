@@ -1,4 +1,4 @@
-import soundSrcs from '../../assets/_sounds.js';
+import soundSrcs from '@/assets/_sounds.js';
 
 class SoundManager {
   die = 'die';
@@ -38,7 +38,8 @@ class SoundManager {
 
   #loadSound(src) {
     const audio = new Audio();
-    audio.src = `assets/sounds/${src}`;
+    audio.src = `/sounds/${src}`;
+    console.log(audio);
     return audio;
   }
 

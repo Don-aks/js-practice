@@ -1,5 +1,5 @@
-import { COLOR_TEXT_SHADOW, FONT } from '../constants/constants.js';
-import ScoreManager from '../services/ScoreManager.js';
+import { COLOR_TEXT_SHADOW, FONT } from '../constants/constants';
+import ScoreManager from '../services/ScoreManager';
 
 class GameOver {
   isHidden = false;

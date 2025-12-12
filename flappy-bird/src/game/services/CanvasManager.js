@@ -1,4 +1,4 @@
-import CanvasLogic from '../logic/CanvasLogic.js';
+import CanvasLogic from '../logic/CanvasLogic';
 
 class CanvasManager {
   init(canvasSelector) {

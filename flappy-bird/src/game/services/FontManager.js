@@ -1,4 +1,4 @@
-import { FONT, FONT_SRC } from '../constants/constants.js';
+import { FONT, FONT_SRC } from '../constants/constants';
 
 class FontManager {
   loadAll() {

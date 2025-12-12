@@ -1,6 +1,6 @@
-import InputManager from '../services/InputManager.js';
-import BackgroundLogic from '../logic/BackgroundLogic.js';
-import Ground from '../objects/Ground.js';
+import InputManager from '../services/InputManager';
+import BackgroundLogic from '../logic/BackgroundLogic';
+import Ground from '../objects/Ground';
 
 class Menu {
   #images = {};

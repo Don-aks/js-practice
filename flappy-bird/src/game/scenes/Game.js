@@ -1,16 +1,16 @@
-import { GRAVITY } from '../constants/constants.js';
+import { GRAVITY } from '../constants/constants';
 
-import CollisionManager from '../services/CollisionManager.js';
-import ScoreManager from '../services/ScoreManager.js';
-import InputManager from '../services/InputManager.js';
-import SoundManager from '../services/SoundManager.js';
+import CollisionManager from '../services/CollisionManager';
+import ScoreManager from '../services/ScoreManager';
+import InputManager from '../services/InputManager';
+import SoundManager from '../services/SoundManager';
 
-import BackgroundLogic from '../logic/BackgroundLogic.js';
-import GameOver from './GameOver.js';
+import BackgroundLogic from '../logic/BackgroundLogic';
+import GameOver from './GameOver';
 
-import PipePair from '../objects/PipePair.js';
-import Ground from '../objects/Ground.js';
-import Bird from '../objects/Bird.js';
+import PipePair from '../objects/PipePair';
+import Ground from '../objects/Ground';
+import Bird from '../objects/Bird';
 
 class Game {
   PIPES_TO_RENDER = 2;

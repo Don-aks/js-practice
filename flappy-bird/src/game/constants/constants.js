@@ -1,4 +1,4 @@
-export const LOADER_FRAMES_DELAY_TO_SHOW = 0;
+export const LOADER_FRAMES_DELAY_TO_SHOW = 50;
 export const LOADER_REQUIRED_IMAGE_KEYS = [
   'bird',
   'logo',
@@ -19,7 +19,7 @@ export const COLOR_TEXT_DEFAULT = '#ffffff';
 export const COLOR_TEXT_SHADOW = '#000000';
 
 export const FONT = 'FlappyBird';
-export const FONT_SRC = "url('assets/fonts/FlappyBird.woff2') format('woff2')";
+export const FONT_SRC = "url('/fonts/FlappyBird.woff2') format('woff2')";
 
 export const MEDALS = {
   bronze: {

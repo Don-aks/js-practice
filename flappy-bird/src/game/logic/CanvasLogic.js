@@ -1,4 +1,4 @@
-import { MIN_WIDTH, MIN_HEIGHT } from '../constants/constants.js';
+import { MIN_WIDTH, MIN_HEIGHT } from '../constants/constants';
 
 class CanvasLogic {
   constructor(canvas) {

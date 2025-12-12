@@ -1,5 +1,5 @@
-import Pipe from './Pipe.js';
-import PipePairLogic from '../logic/PipePairLogic.js';
+import Pipe from './Pipe';
+import PipePairLogic from '../logic/PipePairLogic';
 
 class PipePair {
   isPassed = false;

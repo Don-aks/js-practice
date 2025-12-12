@@ -4,7 +4,7 @@ import {
   FONT,
   MEDALS,
   STORAGE_RECORD_KEY,
-} from '../constants/constants.js';
+} from '../constants/constants';
 
 class ScoreManager {
   record = null;

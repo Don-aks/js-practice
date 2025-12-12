@@ -1,7 +1,8 @@
-import CanvasManager from './game/services/CanvasManager.js';
-import AssetsManager from './game/services/AssetsManager.js';
-import Menu from './game/scenes/Menu.js';
-import Game from './game/scenes/Game.js';
+import CanvasManager from './game/services/CanvasManager';
+import AssetsManager from './game/services/AssetsManager';
+import Menu from './game/scenes/Menu';
+import Game from './game/scenes/Game';
+import './style.css';
 
 const [result, canvas] = CanvasManager.init('#gameCanvas');
 if (!result) throw new Error('Cannot set canvas size');

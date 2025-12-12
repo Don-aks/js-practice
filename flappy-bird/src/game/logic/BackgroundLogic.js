@@ -1,5 +1,5 @@
-import { FRAME_COUNT_TO_TOGGLE_DAY_NIGHT } from '../constants/constants.js';
-import Background from '../objects/Background.js';
+import { FRAME_COUNT_TO_TOGGLE_DAY_NIGHT } from '../constants/constants';
+import Background from '../objects/Background';
 
 class BackgroundLogic {
   frameCountToToggleDayNight = FRAME_COUNT_TO_TOGGLE_DAY_NIGHT;

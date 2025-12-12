@@ -1,11 +1,12 @@
-import ImageManager from './ImageManager.js';
-import SoundManager from './SoundManager.js';
-import FontManager from './FontManager.js';
+import ImageManager from './ImageManager';
+import SoundManager from './SoundManager';
+import FontManager from './FontManager';
 
-import Loader from '../scenes/Loader.js';
+import Loader from '../scenes/Loader';
 
 class AssetsManager {
   async loadWithLoader(canvas) {
+    console.log('+');
     const imagesForLoader = await ImageManager.loadInitial();
     const loader = new Loader(canvas, imagesForLoader);
 

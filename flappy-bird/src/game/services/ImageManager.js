@@ -1,5 +1,5 @@
-import imageSrcs from '../../assets/_images.js';
-import { LOADER_REQUIRED_IMAGE_KEYS } from '../constants/constants.js';
+import imageSrcs from '@/assets/_images';
+import { LOADER_REQUIRED_IMAGE_KEYS } from '../constants/constants';
 
 class ImageManager {
   images = {};
@@ -17,6 +17,7 @@ class ImageManager {
 
   async #loadImages(imageSrcs, isInitialLoad = false) {
     let entries = Object.entries(imageSrcs);
+    console.log(imageSrcs);
 
     if (isInitialLoad) {
       entries = entries.filter(([key]) => this.#firstToLoad.includes(key));
@@ -33,7 +34,7 @@ class ImageManager {
       const img = new Image();
       img.onload = () => resolve(img);
       img.onerror = reject;
-      img.src = `assets/${src}`;
+      img.src = `src/assets/${src}`;
 
       this.images[key] = img;
     });

@@ -1,10 +1,10 @@
 import {
-  LOADER_FRAMES_DELAY,
+  LOADER_FRAMES_DELAY_TO_SHOW,
   COLOR_LOADER_BG,
   GRAVITY,
-} from '../constants/constants.js';
-import PipePair from '../objects/PipePair.js';
-import Bird from '../objects/Bird.js';
+} from '../constants/constants';
+import PipePair from '../objects/PipePair';
+import Bird from '../objects/Bird';
 
 class Loader {
   isHidden = false;
