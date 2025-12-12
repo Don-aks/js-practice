@@ -3,7 +3,7 @@ import { vitePluginWebp } from 'vite-plugin-to-webp';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default {
-  base: '',
+  base: './',
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
   plugins: [
     vitePluginWebp({ cwd: ['src/assets'] }),
