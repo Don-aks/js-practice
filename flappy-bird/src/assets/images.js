@@ -16,19 +16,17 @@ import silverMedal from '/assets/medals/silver.webp';
 import goldMedal from '/assets/medals/gold.webp';
 import platinumMedal from '/assets/medals/platinum.webp';
 
-const imageSrcs = {
+export const PRELOAD_IMAGES = { bird, logo, pipeTop, pipeBottom };
+
+export const RUNTIME_IMAGES = {
   // --- Backgrounds --- //
   backgroundDay,
   backgroundNight,
 
   // --- Menu --- //
-  logo,
   playBtn,
 
   // --- Game --- //
-  bird,
-  pipeTop,
-  pipeBottom,
   ground,
 
   // --- Game over screen --- //
@@ -39,5 +37,3 @@ const imageSrcs = {
   goldMedal,
   platinumMedal,
 };
-
-export default imageSrcs;

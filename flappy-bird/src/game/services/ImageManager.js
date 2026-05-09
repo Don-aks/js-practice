@@ -1,26 +1,20 @@
-import imageSrcs from '@/assets/images';
-import { LOADER_REQUIRED_IMAGE_KEYS } from '../constants/constants';
+import { PRELOAD_IMAGES, RUNTIME_IMAGES } from '@/assets/images';
 
 class ImageManager {
   images = {};
-  #firstToLoad = LOADER_REQUIRED_IMAGE_KEYS;
 
   async loadInitial() {
-    await this.#loadImages(imageSrcs, true);
+    await this.#loadImages(PRELOAD_IMAGES);
     return this.images;
   }
 
   async loadRest() {
-    await this.#loadImages(imageSrcs);
+    await this.#loadImages(RUNTIME_IMAGES);
     return this.images;
   }
 
-  async #loadImages(imageSrcs, isInitialLoad = false) {
+  async #loadImages(imageSrcs) {
     let entries = Object.entries(imageSrcs);
-
-    if (isInitialLoad) {
-      entries = entries.filter(([key]) => this.#firstToLoad.includes(key));
-    }
 
     const promises = entries.map(async ([key, src]) => {
       await this.#loadImage(key, src);
