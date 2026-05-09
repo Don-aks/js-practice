@@ -6,7 +6,6 @@ import Loader from '../scenes/Loader';
 
 class AssetsManager {
   async loadWithLoader(canvas) {
-    console.log('+');
     const imagesForLoader = await ImageManager.loadInitial();
     const loader = new Loader(canvas, imagesForLoader);
 
