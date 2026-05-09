@@ -1,4 +1,4 @@
-import soundSrcs from '@/assets/_sounds.js';
+import soundSrcs from '@/assets/sounds';
 
 class SoundManager {
   die = 'die';

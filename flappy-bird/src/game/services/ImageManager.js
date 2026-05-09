@@ -1,4 +1,4 @@
-import imageSrcs from '@/assets/_images';
+import imageSrcs from '@/assets/images';
 import { LOADER_REQUIRED_IMAGE_KEYS } from '../constants/constants';
 
 class ImageManager {
