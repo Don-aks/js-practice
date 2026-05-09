@@ -39,7 +39,6 @@ class SoundManager {
   #loadSound(src) {
     const audio = new Audio();
     audio.src = `/sounds/${src}`;
-    console.log(audio);
     return audio;
   }
 

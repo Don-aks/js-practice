@@ -17,7 +17,6 @@ class ImageManager {
 
   async #loadImages(imageSrcs, isInitialLoad = false) {
     let entries = Object.entries(imageSrcs);
-    console.log(imageSrcs);
 
     if (isInitialLoad) {
       entries = entries.filter(([key]) => this.#firstToLoad.includes(key));
