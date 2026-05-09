@@ -38,6 +38,12 @@ class SoundManager {
 
   #loadSound(src) {
     const audio = new Audio();
+
+    audio.onerror = () => {
+      console.error('Sound load error:', audio.src);
+      reject(new Error(`Cannot load ${audio.src}`));
+    };
+
     audio.src = `/sounds/${src}`;
     return audio;
   }
