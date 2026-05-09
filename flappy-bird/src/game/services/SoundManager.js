@@ -48,7 +48,7 @@ class SoundManager {
         reject(new Error(`Cannot load ${audio.src}`));
       };
 
-      audio.src = `/sounds/${src}`;
+      audio.src = src;
     });
   }
 

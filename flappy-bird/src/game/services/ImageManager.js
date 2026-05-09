@@ -37,7 +37,7 @@ class ImageManager {
         console.error('Image load error:', img.src);
         reject(new Error(`Cannot load ${img.src}`));
       };
-      img.src = `/assets/${src}`;
+      img.src = src;
 
       this.images[key] = img;
     });
