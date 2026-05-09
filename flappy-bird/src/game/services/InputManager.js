@@ -2,14 +2,12 @@ class InputManager {
   setupEventListeners(callback) {
     this.callback = callback;
 
-    document.addEventListener('touchstart', callback);
-    document.addEventListener('mousedown', callback);
+    document.addEventListener('pointerdown', callback);
     document.addEventListener('keydown', this.#runCallbackOnSpacebar);
   }
 
   removeEventListeners() {
-    document.removeEventListener('touchstart', this.callback);
-    document.removeEventListener('mousedown', this.callback);
+    document.removeEventListener('pointerdown', this.callback);
     document.removeEventListener('keydown', this.#runCallbackOnSpacebar);
   }
 
