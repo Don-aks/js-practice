@@ -16,10 +16,12 @@ class SoundManager {
   async loadAll() {
     const entries = Object.entries(soundSrcs);
 
-    entries.forEach(([key, src]) => {
-      const audio = this.#loadSound(src);
-      this.sounds[key].push(audio);
-    });
+    await Promise.all(
+      entries.map(async ([key, src]) => {
+        const audio = await this.#loadSound(src);
+        this.sounds[key].push(audio);
+      }),
+    );
   }
 
   playSound(name) {
@@ -37,15 +39,17 @@ class SoundManager {
   }
 
   #loadSound(src) {
-    const audio = new Audio();
+    return new Promise((resolve, reject) => {
+      const audio = new Audio();
 
-    audio.onerror = () => {
-      console.error('Sound load error:', audio.src);
-      reject(new Error(`Cannot load ${audio.src}`));
-    };
+      audio.oncanplaythrough = () => resolve(audio);
+      audio.onerror = () => {
+        console.error('Sound load error:', audio.src);
+        reject(new Error(`Cannot load ${audio.src}`));
+      };
 
-    audio.src = `/sounds/${src}`;
-    return audio;
+      audio.src = `/sounds/${src}`;
+    });
   }
 
   #isPlaying(audio) {
