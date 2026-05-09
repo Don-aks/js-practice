@@ -32,8 +32,11 @@ class ImageManager {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve(img);
-      img.onerror = reject;
-      img.src = `src/assets/${src}`;
+      img.onerror = () => {
+        console.error('Image load error:', img.src);
+        reject(new Error(`Cannot load ${img.src}`));
+      };
+      img.src = `/assets/${src}`;
 
       this.images[key] = img;
     });
