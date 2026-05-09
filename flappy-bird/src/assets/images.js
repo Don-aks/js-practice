@@ -1,20 +1,20 @@
-import backgroundDay from '/assets/background-day.png';
-import backgroundNight from '/assets/background-night.png';
+import backgroundDay from '/assets/background-day.webp';
+import backgroundNight from '/assets/background-night.webp';
 
-import logo from '/assets/logo.png';
-import playBtn from '/assets/play-btn.png';
+import logo from '/assets/logo.webp';
+import playBtn from '/assets/play-btn.webp';
 
-import bird from '/assets/bird.png';
-import pipeTop from '/assets/pipe-top.png';
-import pipeBottom from '/assets/pipe-bottom.png';
-import ground from '/assets/ground.png';
+import bird from '/assets/bird.webp';
+import pipeTop from '/assets/pipe-top.webp';
+import pipeBottom from '/assets/pipe-bottom.webp';
+import ground from '/assets/ground.webp';
 
-import gameOver from '/assets/game-over.png';
-import gameOverScreen from '/assets/game-over-screen.png';
-import bronzeMedal from '/assets/medals/bronze.png';
-import silverMedal from '/assets/medals/silver.png';
-import goldMedal from '/assets/medals/gold.png';
-import platinumMedal from '/assets/medals/platinum.png';
+import gameOver from '/assets/game-over.webp';
+import gameOverScreen from '/assets/game-over-screen.webp';
+import bronzeMedal from '/assets/medals/bronze.webp';
+import silverMedal from '/assets/medals/silver.webp';
+import goldMedal from '/assets/medals/gold.webp';
+import platinumMedal from '/assets/medals/platinum.webp';
 
 const imageSrcs = {
   // --- Backgrounds --- //
