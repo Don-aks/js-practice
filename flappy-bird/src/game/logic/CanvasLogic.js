@@ -19,7 +19,7 @@ class CanvasLogic {
     const cssHeight = height;
     this.setCanvasCSSSize(cssWidth, cssHeight);
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.round(window.devicePixelRatio || 1);
     this.resizeCanvas(cssWidth, cssHeight, dpr);
   }
 
