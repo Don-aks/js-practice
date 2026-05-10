@@ -27,10 +27,10 @@ class GameOver {
 
   draw() {
     const panelImg = this.images.gameOverScreen;
-    const panelWidth = this.canvas.width * 0.7;
+    const panelWidth = this.canvas.clientWidth * 0.7;
     const panelHeight = (panelImg.height / panelImg.width) * panelWidth;
-    const panelX = this.canvas.width / 2 - panelWidth / 2;
-    const panelY = this.canvas.height / 2 - panelWidth / 2;
+    const panelX = this.canvas.clientWidth / 2 - panelWidth / 2;
+    const panelY = this.canvas.clientHeight / 2 - panelWidth / 2;
     this.ctx.drawImage(panelImg, panelX, panelY, panelWidth, panelHeight);
 
     this.ctx.fillStyle = ScoreManager.getColor(this.medalName);
@@ -46,7 +46,7 @@ class GameOver {
 
     if (this.record === null) return;
     this.ctx.fillStyle = ScoreManager.getColor(
-      ScoreManager.calculateMedalName(Number(this.record))
+      ScoreManager.calculateMedalName(Number(this.record)),
     );
     const recordX = panelX + panelWidth * 0.89;
     const recordY = panelY + panelHeight * 0.77;

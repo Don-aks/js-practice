@@ -3,26 +3,35 @@ import { MIN_WIDTH, MIN_HEIGHT } from '../constants/constants';
 class CanvasLogic {
   constructor(canvas) {
     this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
   }
 
   resizeToViewport() {
+    const viewport = window.visualViewport ?? {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+
+    const width = Math.max(viewport.width, MIN_WIDTH);
+    const height = Math.max(viewport.height, MIN_HEIGHT);
+
+    const cssWidth = Math.min(width, height * 0.55);
+    const cssHeight = height;
+    this.setCanvasCSSSize(cssWidth, cssHeight);
+
     const dpr = window.devicePixelRatio || 1;
-
-    const width = window.visualViewport.width * dpr;
-    const height = window.visualViewport.height * dpr;
-
-    this.resizeCanvas(width, height);
+    this.resizeCanvas(cssWidth, cssHeight, dpr);
   }
 
-  resizeCanvas(width, height) {
-    this.canvas.height = height;
-    this.canvas.width = Math.min(width, height * 0.55);
+  setCanvasCSSSize(width, height) {
+    this.canvas.style.width = `${width}px`;
+    this.canvas.style.height = `${height}px`;
+  }
 
-    if (this.canvas.width < MIN_WIDTH || this.canvas.height < MIN_HEIGHT) {
-      throw new Error(
-        'Viewport size is too small for the game to run properly. Change your zoom level or use a device with a larger screen.',
-      );
-    }
+  resizeCanvas(width, height, dpr) {
+    this.canvas.height = height * dpr;
+    this.canvas.width = width * dpr;
+    this.ctx.scale(dpr, dpr);
   }
 }
 

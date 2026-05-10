@@ -1,5 +1,3 @@
-import { GRAVITY } from '../constants/constants';
-
 import CollisionManager from '../services/CollisionManager';
 import ScoreManager from '../services/ScoreManager';
 import InputManager from '../services/InputManager';
@@ -16,7 +14,6 @@ class Game {
   PIPES_TO_RENDER = 2;
 
   isStartAsDay = true;
-  gravity = GRAVITY;
 
   frameCount = 0;
   pipePairs = [];
@@ -31,7 +28,9 @@ class Game {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.#images = images;
-    this.speed = this.canvas.width * 0.006;
+
+    this.speed = this.canvas.clientWidth * 0.006;
+    this.gravity = this.canvas.clientHeight * 0.0002;
   }
 
   addEventListeners() {
@@ -87,20 +86,24 @@ class Game {
     this.ground.draw(this.ctx);
     this.bird.draw(this.ctx);
 
-    ScoreManager.draw(this.ctx, this.canvas.width, this.canvas.height);
+    ScoreManager.draw(
+      this.ctx,
+      this.canvas.clientWidth,
+      this.canvas.clientHeight,
+    );
   }
 
   // --- Initialization --- //
 
   #initGround() {
-    this.ground = new Ground(this.#images.ground, this.canvas.height, 0);
+    this.ground = new Ground(this.#images.ground, this.canvas.clientHeight, 0);
   }
 
   #initBird() {
     this.bird = new Bird(
       this.#images.bird,
-      this.canvas.height,
-      this.ground.height
+      this.canvas.clientHeight,
+      this.ground.height,
     );
   }
 
@@ -116,11 +119,11 @@ class Game {
       this.pipePairs.push(
         new PipePair(
           this.#images,
-          this.canvas.width,
-          this.canvas.height,
+          this.canvas.clientWidth,
+          this.canvas.clientHeight,
           this.ground.height,
-          previous
-        )
+          previous,
+        ),
       );
     }
   }
@@ -159,9 +162,10 @@ class Game {
   }
 
   #handleGameOver() {
-    const screenOffset = this.canvas.height * 0.1;
+    const screenOffset = this.canvas.clientHeight * 0.1;
     const birdTopBottom = this.bird.y - this.bird.hitboxHalfHeight;
-    const isOutOfScreen = birdTopBottom >= this.canvas.height + screenOffset;
+    const isOutOfScreen =
+      birdTopBottom >= this.canvas.clientHeight + screenOffset;
 
     if (this.isLockedInput && isOutOfScreen) {
       SoundManager.playSound(SoundManager.die);
@@ -170,7 +174,7 @@ class Game {
         this.#images,
         ScoreManager.score,
         ScoreManager.record ?? ScoreManager.score,
-        ScoreManager.medalName
+        ScoreManager.medalName,
       );
       this.stop();
 
@@ -193,7 +197,7 @@ class Game {
     }
 
     SoundManager.playSound(SoundManager.flap);
-    this.bird.flap(this.canvas.width);
+    this.bird.flap(this.canvas.clientWidth);
   };
 }
 

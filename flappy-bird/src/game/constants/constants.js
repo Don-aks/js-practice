@@ -3,8 +3,6 @@ export const LOADER_FRAMES_DELAY_TO_SHOW = 50;
 export const MIN_WIDTH = 320;
 export const MIN_HEIGHT = 480;
 
-export const GRAVITY = 0.15;
-
 export const FRAME_COUNT_TO_TOGGLE_DAY_NIGHT = 600;
 export const STORAGE_RECORD_KEY = 'record';
 

@@ -1,7 +1,6 @@
 import {
   LOADER_FRAMES_DELAY_TO_SHOW,
   COLOR_LOADER_BG,
-  GRAVITY,
 } from '../constants/constants';
 import PipePair from '../objects/PipePair';
 import Bird from '../objects/Bird';
@@ -28,29 +27,30 @@ class Loader {
 
   constructor(canvas, images) {
     this.#canvas = canvas;
-    this.#halfCanvasHeight = canvas.height / 2;
+    this.#halfCanvasHeight = canvas.clientHeight / 2;
     this.#images = images;
     this.#ctx = canvas.getContext('2d');
-    this.speed = this.#canvas.width * 0.006;
+    this.speed = this.#canvas.clientWidth * 0.006;
+    this.gravity = this.#canvas.clientHeight * 0.0002;
   }
 
   start() {
-    this.#bird = new Bird(this.#images.bird, this.#canvas.height, 0);
-    this.#bird.x = this.#canvas.width * 0.3;
+    this.#bird = new Bird(this.#images.bird, this.#canvas.clientHeight, 0);
+    this.#bird.x = this.#canvas.clientWidth * 0.3;
     this.#bird.y = this.#halfCanvasHeight;
     this.#birdPower = this.#bird.flapPower;
 
     this.#pipePair = new PipePair(
       this.#images,
-      this.#canvas.width,
-      this.#canvas.height,
+      this.#canvas.clientWidth,
+      this.#canvas.clientHeight,
       0,
       null,
-      false
+      false,
     );
-    this.#pipePair.x = this.#canvas.width / 2;
+    this.#pipePair.x = this.#canvas.clientWidth / 2;
     this.#pipePairStartX = this.#pipePair.x;
-    this.#pipePairEndX = this.#canvas.width - this.#pipePair.width;
+    this.#pipePairEndX = this.#canvas.clientWidth - this.#pipePair.width;
 
     const pipeHeight = this.#halfCanvasHeight - this.#pipePair.gap;
     this.#pipePair.top.height = pipeHeight;
@@ -90,7 +90,7 @@ class Loader {
       this.#bird.flap();
     }
 
-    this.#bird.update(GRAVITY);
+    this.#bird.update(this.gravity);
     if (this.#isPipePairGoesRight) {
       let newPipeX = this.#pipePair.x + this.speed;
 
@@ -117,19 +117,24 @@ class Loader {
 
   draw() {
     this.#ctx.fillStyle = COLOR_LOADER_BG;
-    this.#ctx.fillRect(0, 0, this.#canvas.width, this.#canvas.height);
+    this.#ctx.fillRect(
+      0,
+      0,
+      this.#canvas.clientWidth,
+      this.#canvas.clientHeight,
+    );
     this.#bird.draw(this.#ctx);
     this.#pipePair.draw(this.#ctx);
 
     const logo = this.#images.logo;
-    const logoWidth = this.#canvas.width * 0.7;
+    const logoWidth = this.#canvas.clientWidth * 0.7;
     const logoHeight = (logo.height * logoWidth) / logo.width;
     this.#ctx.drawImage(
       logo,
-      (this.#canvas.width - logoWidth) / 2,
-      this.#canvas.height * 0.15,
+      (this.#canvas.clientWidth - logoWidth) / 2,
+      this.#canvas.clientHeight * 0.15,
       logoWidth,
-      logoHeight
+      logoHeight,
     );
   }
 }

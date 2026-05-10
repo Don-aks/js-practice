@@ -18,7 +18,7 @@ class Menu {
     this.#initBackground();
     this.#initMenuElements();
 
-    this.speed = this.canvas.width * 0.006;
+    this.speed = this.canvas.clientWidth * 0.006;
   }
 
   setupEventListeners() {
@@ -55,7 +55,7 @@ class Menu {
   // --- Initialization --- //
 
   #initGround() {
-    this.ground = new Ground(this.#images.ground, this.canvas.height, 0);
+    this.ground = new Ground(this.#images.ground, this.canvas.clientHeight, 0);
   }
 
   #initBackground() {
@@ -69,11 +69,11 @@ class Menu {
 
     this.#logo = {
       img: logoImg,
-      width: this.canvas.width * 0.7,
+      width: this.canvas.clientWidth * 0.7,
     };
     this.#playBtn = {
       img: playImg,
-      width: this.canvas.width * 0.3,
+      width: this.canvas.clientWidth * 0.3,
     };
 
     this.#logo.height = (logoImg.height / logoImg.width) * this.#logo.width;
@@ -96,20 +96,20 @@ class Menu {
   #drawLogo() {
     this.ctx.drawImage(
       this.#logo.img,
-      (this.canvas.width - this.#logo.width) / 2,
-      this.canvas.height * 0.35,
+      (this.canvas.clientWidth - this.#logo.width) / 2,
+      this.canvas.clientHeight * 0.15,
       this.#logo.width,
-      this.#logo.height
+      this.#logo.height,
     );
   }
 
   #drawButton() {
     this.ctx.drawImage(
       this.#playBtn.img,
-      (this.canvas.width - this.#playBtn.width) / 2,
-      this.canvas.height * 0.5,
+      (this.canvas.clientWidth - this.#playBtn.width) / 2,
+      this.canvas.clientHeight * 0.5,
       this.#playBtn.width,
-      this.#playBtn.height
+      this.#playBtn.height,
     );
   }
 }

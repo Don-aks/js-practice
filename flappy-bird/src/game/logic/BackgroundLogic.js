@@ -18,14 +18,18 @@ class BackgroundLogic {
     this.#canvas = canvas;
     this.#background = new Background(
       { day: this.#images.backgroundDay, night: this.#images.backgroundNight },
-      this.#canvas.width,
-      this.#canvas.height,
-      this.isStartAsDay
+      this.#canvas.clientWidth,
+      this.#canvas.clientHeight,
+      this.isStartAsDay,
     );
   }
 
   draw(ctx) {
-    this.#background.draw(ctx, this.#canvas.width, this.#canvas.height);
+    this.#background.draw(
+      ctx,
+      this.#canvas.clientWidth,
+      this.#canvas.clientHeight,
+    );
   }
 
   update() {

@@ -30,8 +30,8 @@ class Bird {
     this.hitboxX = this.x - this.hitboxWidth / 2;
     this.hitboxY = this.y - this.hitboxHeight / 2;
 
-    this.#flapPower = canvasHeight * 0.005;
-    this.#angleSpeed = canvasHeight * 0.00004;
+    this.#flapPower = canvasHeight * 0.0061;
+    this.#angleSpeed = canvasHeight * 0.00006;
   }
 
   draw(ctx) {
@@ -45,7 +45,7 @@ class Bird {
       -this.halfWidth,
       -this.halfHeight,
       this.width,
-      this.height
+      this.height,
     );
 
     ctx.restore();
