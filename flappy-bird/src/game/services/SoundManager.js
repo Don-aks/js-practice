@@ -6,54 +6,85 @@ class SoundManager {
   point = 'point';
   hit = 'hit';
 
-  sounds = {
-    die: [],
-    flap: [],
-    point: [],
-    hit: [],
-  };
+  #POOL_SIZE = 5;
+
+  #POOLED_SOUNDS = ['flap'];
+  sounds = {};
 
   async loadAll() {
     const entries = Object.entries(soundSrcs);
 
-    await Promise.all(
+    const loadedSounds = await Promise.all(
       entries.map(async ([key, src]) => {
-        const audio = await this.#loadSound(src);
-        this.sounds[key].push(audio);
+        const sound = this.#isPooled(key)
+          ? await this.#loadPool(src)
+          : this.#createAudio(src);
+
+        return [key, sound];
       }),
     );
+
+    this.sounds = Object.fromEntries(loadedSounds);
   }
 
   playSound(name) {
-    if (
-      Object.hasOwn(this.sounds, name) &&
-      this.#isPlaying(this.sounds[name][0])
-    ) {
-      const cloneAudio = this.sounds[name][0].cloneNode();
-      cloneAudio.play();
+    const sound = this.sounds[name];
+    if (!sound) return;
+
+    if (this.#isPooled(name)) {
+      this.#playFromPool(sound);
       return;
     }
 
-    this.sounds[name].slice(0, 1);
-    this.sounds[name][0].play();
+    this.#playSingle(sound);
   }
 
-  #loadSound(src) {
-    return new Promise((resolve, reject) => {
-      const audio = new Audio();
+  #playSingle(audio) {
+    if (this.#isPlaying(audio)) return;
 
-      audio.oncanplaythrough = () => resolve(audio);
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  #playFromPool(pool) {
+    const audio = pool.find((a) => a.paused || a.ended) || pool[0];
+
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  #createAudio(src) {
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.src = src;
+
+    return audio;
+  }
+
+  #loadPool(src) {
+    return Promise.all(
+      Array.from({ length: this.#POOL_SIZE }, () => this.#loadAudio(src)),
+    );
+  }
+
+  #loadAudio(src) {
+    return new Promise((resolve, reject) => {
+      const audio = this.#createAudio(src);
+
+      audio.onloadeddata = () => resolve(audio);
       audio.onerror = () => {
         console.error('Sound load error:', audio.src);
         reject(new Error(`Cannot load ${audio.src}`));
       };
-
-      audio.src = src;
     });
   }
 
+  #isPooled(name) {
+    return this.#POOLED_SOUNDS.includes(name);
+  }
+
   #isPlaying(audio) {
-    return !audio.paused;
+    return !audio.paused && !audio.ended;
   }
 }
 
