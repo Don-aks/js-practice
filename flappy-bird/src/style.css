@@ -10,4 +10,6 @@ body {
   margin: 0;
 
   background-color: #272b31;
+
+  overflow: clip;
 }
