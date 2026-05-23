@@ -38,7 +38,7 @@ class GameOver {
     this.ctx.font = `${panelWidth * 0.1}px ${FONT}`;
     this.ctx.textAlign = 'right';
     this.ctx.shadowColor = COLOR_TEXT_SHADOW;
-    this.ctx.lineWidth = panelWidth * 0.03;
+    this.ctx.lineWidth = panelWidth * 0.015;
     const scoreX = panelX + panelWidth * 0.89;
     const scoreY = panelY + panelHeight * 0.42;
 
