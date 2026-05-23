@@ -22,8 +22,12 @@ class ScoreManager {
     ctx.textAlign = 'center';
     ctx.shadowColor = COLOR_TEXT_SHADOW;
     ctx.lineWidth = canvasHeight * 0.01;
-    ctx.strokeText(this.#score, canvasWidth / 2, canvasHeight * 0.13);
-    ctx.fillText(this.#score, canvasWidth / 2, canvasHeight * 0.13);
+    ctx.strokeText(
+      this.#score,
+      Math.round(canvasWidth / 2),
+      canvasHeight * 0.13,
+    );
+    ctx.fillText(this.#score, Math.round(canvasWidth / 2), canvasHeight * 0.13);
     ctx.restore();
   }
 
