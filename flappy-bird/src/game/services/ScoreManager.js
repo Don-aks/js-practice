@@ -17,6 +17,8 @@ class ScoreManager {
 
   draw(ctx, canvasWidth, canvasHeight) {
     ctx.save();
+    const dpr = Math.round(window.devicePixelRatio || 1);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.fillStyle = this.scoreColor;
     ctx.font = `${canvasWidth * 0.2}px ${FONT}`;
     ctx.textAlign = 'center';
