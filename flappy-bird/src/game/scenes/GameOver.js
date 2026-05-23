@@ -33,6 +33,7 @@ class GameOver {
     const panelY = this.canvas.clientHeight / 2 - panelWidth / 2;
     this.ctx.drawImage(panelImg, panelX, panelY, panelWidth, panelHeight);
 
+    this.ctx.save();
     this.ctx.fillStyle = ScoreManager.getColor(this.medalName);
     this.ctx.font = `${panelWidth * 0.1}px ${FONT}`;
     this.ctx.textAlign = 'right';
@@ -52,6 +53,7 @@ class GameOver {
     const recordY = panelY + panelHeight * 0.77;
     this.ctx.strokeText(this.record, recordX, recordY);
     this.ctx.fillText(this.record, recordX, recordY);
+    this.ctx.restore();
 
     if (this.medalName === 'noMedal') return;
     const medalImg = this.images[`${this.medalName}Medal`];
