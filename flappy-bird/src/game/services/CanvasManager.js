@@ -5,13 +5,8 @@ class CanvasManager {
     this.canvas = document.querySelector(canvasSelector);
     this.canvasLogic = new CanvasLogic(this.canvas);
 
-    try {
-      this.canvasLogic.resizeToViewport();
-    } catch (error) {
-      alert(error.message);
-      return [false, this.canvas];
-    }
-    return [true, this.canvas];
+    this.canvasLogic.resizeToViewport();
+    return this.canvas;
   }
 }
 
